@@ -16,7 +16,6 @@ class NewsController extends Controller
     {
         // $news = News::all();
         $news = new NewsCollection(News::paginate(5));
-        // dd($news);
         return Inertia::render('Homepage', [
             'title' => 'mbuh karep',
             'description' => 'coba react ges',
