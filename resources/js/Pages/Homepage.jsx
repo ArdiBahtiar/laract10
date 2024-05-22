@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Head } from '@inertiajs/react';
 import Navbar from '@/Components/Navbar';
 import NewsItems from '@/Components/Homepage/NewsItems';
+import Paginator from '@/Components/Homepage/Paginator';
 
 export default function Homepage(props) {
     console.log('propsss: ', props)
@@ -9,27 +10,14 @@ export default function Homepage(props) {
         <div className='min-h-screen bg-slate-100'>
             <Head title={props.title}/>
             <Navbar />
+
+            <div className='flex justify-center flex-col items-center gap-4 p-4 lg:flex-row lg:flex-wrap lg:items-stretch'>
             <NewsItems news={props.news.data}/>
+            </div>
+
+            <div className='flex justify-center items-center p-4'>
+            <Paginator meta={props.news.meta}/>
+            </div>
         </div>
     )
 }
-
-
-
-
-
-
-           /* 
-           <div>
-           { {props.news ? props.news.map((data, i) => {
-                return (
-                    <div key={i} className='p-4 m-2 bg-white text-black shadow-lg rounded-lg'>
-                        <p className='text-2xl'>{data.title}</p>
-                        <p className='text-sm'>{data.description}</p>
-                        <i>{data.category}</i>
-                        <i>{data.author}</i>
-                    </div>
-                )
-            }) : <p>Belum ada data ^^</p>} } 
-            </div>
-            */
