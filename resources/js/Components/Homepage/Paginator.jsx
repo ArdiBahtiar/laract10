@@ -9,9 +9,9 @@ const Paginator = ({ meta }) => {       // kurung kurawal itu ngambil properti y
     
     return (
         <div className="btn-group">
-        {prev && <Link href={prev} className="btn">«</Link>}
+        {prev && <Link href={prev} className="btn">«</Link>}        {/* ini syntax if tanpa else buat javascript */}
         <Link className="btn">{current}</Link>
-        {next && <Link href={next} className="btn">»</Link>}
+        {next && <Link href={next} className="btn">»</Link>}        
         </div>
     )
 }

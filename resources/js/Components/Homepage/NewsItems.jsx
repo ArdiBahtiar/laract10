@@ -26,7 +26,7 @@ const noNews = () => {
 }
 
 const NewsItems = ({ news }) => {
-    return !news ? noNews() : isNews(news)
+    return !news ? noNews() : isNews(news)          // ini syntax if else buat javascript
 }
 
 export default NewsItems

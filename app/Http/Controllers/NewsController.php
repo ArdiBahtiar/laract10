@@ -16,10 +16,10 @@ class NewsController extends Controller
     {
         // $news = News::all();
         $news = new NewsCollection(News::paginate(5));
-        return Inertia::render('Homepage', [
+        return Inertia::render('Homepage', [        // SEMUA YANG DITULIS DI ARRAY INI BAKAL MUNCUL DI CONSOLE.LOG !!!!
             'title' => 'mbuh karep',
             'description' => 'coba react ges',
-            'news' => $news,
+            'news' => $news,                    
         ]);
     }
 
