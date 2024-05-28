@@ -1,4 +1,11 @@
-const Navbar = () => {
+import { Link, createInertiaApp } from "@inertiajs/react"
+
+createInertiaApp
+
+
+const Navbar = ({ profile }) => {
+  // console.log('ini profile: ', profile)
+
     return (
 
 <div className="navbar bg-base-100">
@@ -16,14 +23,23 @@ const Navbar = () => {
         </div>
       </div>
       <ul tabIndex="0" className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        {!profile ? 
+        <>
+          <li><Link href={route('login')} as="button">Login</Link></li>
+          <li><Link href={route('register')} as="button">Register</Link></li>
+        </>
+        : 
+        <>
+                <li>
+                  <Link href={route('dashboard')} as="button" className="justify-between">
+                    Dashboard
+                    <span className="badge">New</span>
+                  </Link>
+                </li>
+                <li><Link>Settings</Link></li>
+                <li><Link href={route('logout')} method="post" as="button">Logout</Link></li>
+        </>
+        }
       </ul>
     </div>
   </div>

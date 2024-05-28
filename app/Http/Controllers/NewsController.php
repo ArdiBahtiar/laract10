@@ -15,7 +15,7 @@ class NewsController extends Controller
     public function index()
     {
         // $news = News::all();
-        $news = new NewsCollection(News::paginate(5));
+        $news = new NewsCollection(News::paginate(9));
         return Inertia::render('Homepage', [        // SEMUA YANG DITULIS DI ARRAY INI BAKAL MUNCUL DI CONSOLE.LOG !!!!
             'title' => 'mbuh karep',
             'description' => 'coba react ges',

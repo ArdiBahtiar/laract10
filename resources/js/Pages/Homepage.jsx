@@ -9,7 +9,7 @@ export default function Homepage(props) {
     return (
         <div className='min-h-screen bg-slate-100'>
             <Head title={props.title}/>             {/*ini ngambil dari NewsController*/}
-            <Navbar />
+            <Navbar profile={props.auth.user} />
 
             <div className='flex justify-center flex-col items-center gap-4 p-4 lg:flex-row lg:flex-wrap lg:items-stretch'>
             <NewsItems news={props.news.data}/>     {/*ini ngambil dari props, bisa dilihat dari console.log*/}       
