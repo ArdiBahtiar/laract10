@@ -36,7 +36,13 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $news = new News();                             // semua data dari $request dimasukkan sebagai data baru di News
+        $news->title = $request->title;                 // dimasukkan dalam tabel news kolom title, berdasarkan request->title
+        $news->description = $request->description;
+        $news->category = $request->category;
+        $news->author = auth()->user()->email;
+        $news->save();
+        return redirect()->back()->with('message', 'berhasil dibuat');
     }
 
     /**

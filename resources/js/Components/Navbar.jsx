@@ -4,7 +4,7 @@ createInertiaApp
 
 
 const Navbar = ({ profile }) => {
-  // console.log('ini profile: ', profile)
+  console.log('ini profile: ', profile)
 
     return (
 

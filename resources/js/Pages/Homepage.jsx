@@ -5,7 +5,7 @@ import NewsItems from '@/Components/Homepage/NewsItems';
 import Paginator from '@/Components/Homepage/Paginator';
 
 export default function Homepage(props) {
-    console.log('propsss: ', props)         /*ini buat nunjukkin apa aja yang ditampilin sama variabel 'props'*/
+    // console.log('propsss: ', props)         /*ini buat nunjukkin apa aja yang ditampilin sama variabel 'props'*/
     return (
         <div className='min-h-screen bg-slate-100'>
             <Head title={props.title}/>             {/*ini ngambil dari NewsController*/}
