@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,16 +18,20 @@ use Inertia\Inertia;
 */
 
 Route::get('/', 'App\Http\Controllers\NewsController@index');
-Route::post('/news', 'App\Http\Controllers\NewsController@store');
+Route::post('/news', 'App\Http\Controllers\NewsController@store')->middleware('auth')->name('create.news');
+Route::get('/news', 'App\Http\Controllers\NewsController@show')->middleware('auth')->name('my.news');
+Route::get('/news/edit', 'App\Http\Controllers\NewsController@edit')->middleware('auth')->name('edit.news');
+Route::post('/news/update', 'App\Http\Controllers\NewsController@update')->middleware('auth')->name('update.news');
+Route::post('/news/delete', 'App\Http\Controllers\NewsController@destroy')->middleware('auth')->name('delete.news');
 
-Route::get('/welcome', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/welcome', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 
 Route::get('/dashboard', function () {
